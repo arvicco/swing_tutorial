@@ -1,0 +1,13 @@
+= swing_tutorial
+by: Arvicco
+url: http://github.com/arvicco/swing_tutorial
+
+== DESCRIPTION:
+
+This is an attempt to learn Swing, following along:
+http://zetcode.com/tutorials/jrubyswingtutorial/
+
+== FEATURES/PROBLEMS:
+
+== LICENSE:
+Copyright (c) 2011 Arvicco. See LICENSE for details.
