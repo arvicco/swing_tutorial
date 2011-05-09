@@ -1,0 +1,25 @@
+#!/usr/local/bin/jruby
+
+# This example shows a simple window in the center of the screen.
+
+include Java
+
+import javax.swing.JFrame
+
+class SimpleFrame < JFrame
+
+  def initialize
+    super "Simple Frame"
+
+    self.initUI
+  end
+
+  def initUI
+    self.setSize 300, 200
+    self.setDefaultCloseOperation JFrame::EXIT_ON_CLOSE
+    self.setLocationRelativeTo nil
+    self.setVisible true
+  end
+end
+
+SimpleFrame.new
