@@ -1,0 +1,53 @@
+#!/usr/local/bin/jruby
+
+# ZetCode JRuby Swing tutorial
+# This code shows a tooltip on a window and a button
+
+include Java
+
+import javax.swing.JButton
+import javax.swing.JFrame
+import javax.swing.JPanel
+import java.lang.System
+
+class MyButton < JButton
+  def initialize p, name, bounds, opts = {}, &block
+    super name
+
+    self.setBounds *bounds
+    self.setToolTipText opts[:tooltip] if opts[:tooltip]
+    self.add_action_listener &block if block
+
+    p.add self
+  end
+
+end
+
+class MainFrame < JFrame
+
+  def initialize
+    super "Tooltips"
+
+    self.initUI
+  end
+
+  def initUI
+    panel = JPanel.new
+    self.getContentPane.add panel
+
+    panel.setLayout nil
+    panel.setToolTipText "A Panel container"
+
+    b = MyButton.new panel, "Button", [130, 60, 100, 30], :tooltip => "A Button, does nothing"
+    q = MyButton.new(panel, "Quit", [50, 60, 80, 30],
+                     :tooltip => "A Button, exits app") { |e| System.exit 0 }
+
+    self.setDefaultCloseOperation JFrame::EXIT_ON_CLOSE
+    self.setSize 300, 200
+    self.setLocationRelativeTo nil
+    self.setVisible true
+  end
+
+end
+
+MainFrame.new
